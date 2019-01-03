@@ -5,4 +5,5 @@ module.exports = {
   configureWebpack: {
     plugins: [new VuetifyLoaderPlugin()],
   },
+  outputDir: 'docs',
 };
