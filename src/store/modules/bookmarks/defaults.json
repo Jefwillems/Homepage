@@ -1,0 +1,34 @@
+{
+  "bookmarks": [
+    {
+      "url": "https://www.reddit.com",
+      "title": "Reddit",
+      "icon": "person",
+      "id": 0
+    },
+    {
+      "url": "https://www.netflix.com",
+      "title": "Netflix",
+      "icon": "live_tv",
+      "id": 1
+    },
+    {
+      "url": "https://verkeerscentrumgent.waylay.io/dashboard",
+      "title": "Gent Dashboard",
+      "icon": "dashboard",
+      "id": 2
+    },
+    {
+      "url": "https://score.community",
+      "title": "Score Community",
+      "icon": "group",
+      "id": 3
+    },
+    {
+      "url": "https://drive.google.com/drive/my-drive",
+      "title": "Drive",
+      "icon": "drive_eta",
+      "id": 4
+    }
+  ]
+}
