@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuetify from 'vuetify';
+import Vuetify from 'vuetify/lib';
 import App from './App.vue';
 import store from './store';
 import 'vuetify/src/stylus/app.styl';
