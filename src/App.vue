@@ -10,7 +10,7 @@
     </VToolbar>
     <NavDrawer :drawer="drawer" />
     <VContent class="py-0">
-      <WeatherWidget />
+      <Widgets />
     </VContent>
     <VFooter
       app
@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import WeatherWidget from './components/WeatherWidget.vue';
+import Widgets from './components/Widgets.vue';
 import NavDrawer from './components/NavDrawer.vue';
 
 export default {
   name: 'App',
-  components: { WeatherWidget, NavDrawer },
+  components: { Widgets, NavDrawer },
   data() {
     return {
       drawer: false,
