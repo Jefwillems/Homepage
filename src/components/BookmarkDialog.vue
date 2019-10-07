@@ -2,21 +2,23 @@
   <div class="dialog-container">
     <VDialog
       v-model="dialog"
-      width="500"
+      width="600"
     >
-      <VBtn
-        v-if="type === ''"
-        slot="activator"
-        block
-      >
-        Add Bookmark
-      </VBtn>
-      <VIcon
-        v-else
-        slot="activator"
-      >
-        edit
-      </VIcon>
+      <template v-slot:activator="{ on }">
+        <VBtn
+          v-if="type === ''"
+          block
+          v-on="on"
+        >
+          Add Bookmark
+        </VBtn>
+        <VIcon
+          v-else
+          v-on="on"
+        >
+          edit
+        </VIcon>
+      </template>
 
       <VCard>
         <VCardTitle
@@ -41,7 +43,7 @@
                   v-model="mTitle"
                   label="Title"
                   placeholder="Title"
-                  box
+                  filled
                   required
                   :rules="titleRules"
                 />
@@ -57,7 +59,7 @@
                   :rules="urlRules"
                   label="Url"
                   placeholder="url"
-                  box
+                  filled
                 />
               </VFlex>
               <VFlex
@@ -69,7 +71,7 @@
                   v-model="mIcon"
                   :items="icons"
                   :label="'Icon'"
-                  box
+                  filled
                   chips
                 >
                   <template
@@ -110,7 +112,6 @@
           <VSpacer />
           <VBtn
             color="primary"
-            flat
             @click="addBookmark"
           >
             Add
@@ -156,7 +157,10 @@ export default {
         v => !!v || 'Name is required',
         v => v.length <= 15 || 'Title must be shorter than 16 chars',
       ],
-      urlRules: [u => !!u || 'Url is required', u => this.isValidUrl(u) || 'Url is not valid'],
+      urlRules: [
+        u => !!u || 'Url is required',
+        u => this.isValidUrl(u) || 'Url is not valid',
+      ],
       mUrl: this.$props.url,
       mIcon: this.$props.icon,
       mTitle: this.$props.title,

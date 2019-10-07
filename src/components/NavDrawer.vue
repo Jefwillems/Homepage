@@ -1,27 +1,25 @@
 <template>
   <VNavigationDrawer
     v-model="drawer"
-    clipped
-    fixed
     app
-    width="325"
+    clipped
   >
     <VList dense>
-      <VListTile
+      <v-list-item
         v-for="item in bookmarks"
         :key="item.title"
         @click="goTo(item.url)"
       >
-        <VListTileAction>
+        <v-list-item-icon>
           <VIcon>{{ item.icon }}</VIcon>
-        </VListTileAction>
-        <VListTileContent>
-          <VListTileTitle>{{ item.title }}</VListTileTitle>
-        </VListTileContent>
-        <VListTileAction @click.stop="goToBlank(item.url)">
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item-content>
+        <v-list-item-action @click.stop="goToBlank(item.url)">
           <VIcon>tab</VIcon>
-        </VListTileAction>
-        <VListTileAction @click.stop="editBookmark">
+        </v-list-item-action>
+        <v-list-item-action @click.stop="editBookmark">
           <BookmarkDialog
             :id="item.id"
             :title="item.title"
@@ -29,11 +27,11 @@
             :icon="item.icon"
             type="edit"
           />
-        </VListTileAction>
-      </VListTile>
-      <VListTile>
+        </v-list-item-action>
+      </v-list-item>
+      <v-list-item>
         <BookmarkDialog />
-      </VListTile>
+      </v-list-item>
     </VList>
   </VNavigationDrawer>
 </template>

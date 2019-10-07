@@ -1,15 +1,19 @@
 <template>
-  <VApp dark>
-    <VToolbar
+  <v-app
+    id="app"
+    dark
+  >
+    <NavDrawer :drawer="drawer" />
+    <v-app-bar
       app
-      fixed
+      dense
       clipped-left
     >
-      <VToolbarSideIcon @click.stop="drawer = !drawer" />
-      <VToolbarTitle>Home</VToolbarTitle>
-    </VToolbar>
-    <NavDrawer :drawer="drawer" />
-    <VContent class="py-0">
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
+
+      <v-toolbar-title>Home</v-toolbar-title>
+    </v-app-bar>
+    <VContent>
       <Widgets />
     </VContent>
     <VFooter
@@ -18,7 +22,7 @@
     >
       <span>&copy; 2018 Jef Willems</span>
     </VFooter>
-  </VApp>
+  </v-app>
 </template>
 
 <script>
@@ -44,6 +48,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+* {
+  font-size: 16px;
 }
 </style>
