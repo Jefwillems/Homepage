@@ -13,4 +13,5 @@ export const mutations = {
   UPDATE_SELECTED_CATEGORY: 'update_selected_category',
   UPDATE_BOOKMARKS: 'update_bookmarks',
   UPDATE_CURRENT_HOROSCOPE: 'update_current_horoscope',
+  UPDATE_SIGN: 'update_sign',
 };
