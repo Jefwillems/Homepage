@@ -2,22 +2,25 @@
   <VFlex
     :xs6="xs6"
     :xs12="xs12"
+    class="px-0"
   >
-    <VCard
+    <v-card
       color="blue-grey darken-2"
       class="white--text"
     >
-      <VCardTitle primary-title>
-        <div>
-          <div class="headline">
-            {{ day }}
-          </div>
-          <span class="horoscope-text">
-            {{ horoscope.description }}
-          </span>
-        </div>
-      </VCardTitle>
-    </VCard>
+      <v-toolbar
+        :elevation="0"
+        dense
+        color="blue-grey darken-3"
+      >
+        <v-spacer />
+        <v-toolbar-title>{{ day }}</v-toolbar-title>
+        <v-spacer />
+      </v-toolbar>
+      <v-card-text class="body-1">
+        {{ horoscope.description }}
+      </v-card-text>
+    </v-card>
   </VFlex>
 </template>
 <script>
