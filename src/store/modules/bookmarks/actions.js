@@ -12,7 +12,7 @@ export default {
     if (!bm.id) {
       currentBookmarks.push({ id: currentBookmarks.length, ...bm });
     } else {
-      Object.assign(currentBookmarks.find(el => el.id === bm.id), bm);
+      Object.assign(currentBookmarks.find((el) => el.id === bm.id), bm);
     }
     const bms = await localforage.setItem('bookmarks', currentBookmarks);
     commit(mutations.UPDATE_BOOKMARKS, bms);
