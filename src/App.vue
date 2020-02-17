@@ -37,6 +37,9 @@ export default {
       drawer: false,
     };
   },
+  async beforeCreate() {
+    await this.$store.commit('initialiseStore');
+  },
   methods: {},
 };
 </script>
