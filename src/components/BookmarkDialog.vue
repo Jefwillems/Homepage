@@ -111,6 +111,12 @@
         <VCardActions>
           <VSpacer />
           <VBtn
+            color="error"
+            @click="removeSelf"
+          >
+            Remove
+          </VBtn>
+          <VBtn
             color="primary"
             @click="addBookmark"
           >
@@ -124,7 +130,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { actions } from '../store/types';
+import { actions, mutations } from '../store/types';
 
 export default {
   props: {
@@ -154,12 +160,12 @@ export default {
       valid: false,
       dialog: false,
       titleRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 15 || 'Title must be shorter than 16 chars',
+        (v) => !!v || 'Name is required',
+        (v) => v.length <= 15 || 'Title must be shorter than 16 chars',
       ],
       urlRules: [
-        u => !!u || 'Url is required',
-        u => this.isValidUrl(u) || 'Url is not valid',
+        (u) => !!u || 'Url is required',
+        (u) => this.isValidUrl(u) || 'Url is not valid',
       ],
       mUrl: this.$props.url,
       mIcon: this.$props.icon,
@@ -199,7 +205,13 @@ export default {
         }
         this.dialog = false;
       } else {
-        console.log('Form not valid');
+        // console.log('Form not valid');
+      }
+    },
+    removeSelf() {
+      const { id } = this;
+      if (id > -1) {
+        this.$store.dispatch(`bookmarks/${mutations.REMOVE_BOOKMARK}`, { id: this.id });
       }
     },
   },

@@ -29,4 +29,9 @@ export default {
     const bms = await localforage.setItem('bookmarks', currentBookmarks);
     commit(mutations.UPDATE_BOOKMARKS, bms);
   },
+  async [actions.REMOVE_BOOKMARK]({ commit, state }, bookmark) {
+    const bookmarks = [...state.bookmarks].filter((el) => el.id !== bookmark.id);
+    await localforage.setItem('bookmarks', bookmarks);
+    commit(mutations.UPDATE_BOOKMARKS, bookmarks);
+  },
 };

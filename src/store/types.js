@@ -5,6 +5,7 @@ export const actions = {
   PERSIST_BOOKMARK: 'persist_bookmark',
   INIT_BOOKMARKS: 'init_bookmarks',
   FETCH_HOROSCOPE: 'fetch_horoscope',
+  REMOVE_BOOKMARK: 'remove_bookmark',
 };
 export const mutations = {
   UPDATE_WEATHER_DATA: 'update_weather_data',
@@ -14,4 +15,5 @@ export const mutations = {
   UPDATE_BOOKMARKS: 'update_bookmarks',
   UPDATE_CURRENT_HOROSCOPE: 'update_current_horoscope',
   UPDATE_SIGN: 'update_sign',
+  REMOVE_BOOKMARK: 'remove_bookmark',
 };

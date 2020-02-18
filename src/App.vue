@@ -38,7 +38,7 @@ export default {
     };
   },
   async beforeCreate() {
-    await this.$store.commit('initialiseStore');
+    await this.$store.dispatch('initialiseStore');
   },
   methods: {},
 };

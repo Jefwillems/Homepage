@@ -13,12 +13,6 @@
       "id": 1
     },
     {
-      "url": "https://verkeerscentrumgent.waylay.io/dashboard",
-      "title": "Gent Dashboard",
-      "icon": "dashboard",
-      "id": 2
-    },
-    {
       "url": "https://score.community",
       "title": "Score Community",
       "icon": "group",
