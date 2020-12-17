@@ -7,13 +7,14 @@
       v-model="localEnabled"
       :label="localEnabled ? 'On':'Off'"
       color="orange"
-      @change="toggleLights"
     />
     <v-slider
       label="brightness"
       min="0"
       max="254"
       :thumb-label="true"
+      :value="localBrightness"
+      @end="localBrightness = $event"
     />
   </div>
 </template>
@@ -32,6 +33,14 @@ export default {
       },
       set(val) {
         this.toggleLights(val);
+      },
+    },
+    localBrightness: {
+      get() {
+        return this.$store.state.huemodule.lightsState[0].bri;
+      },
+      set(value) {
+        this.updateLightValues(value);
       },
     },
   },
