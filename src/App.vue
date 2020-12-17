@@ -13,9 +13,9 @@
 
       <v-toolbar-title>Home</v-toolbar-title>
     </v-app-bar>
-    <VContent>
+    <v-main>
       <Widgets />
-    </VContent>
+    </v-main>
     <VFooter
       app
       fixed

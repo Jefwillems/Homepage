@@ -5,6 +5,7 @@ import localforage from 'localforage';
 import weather from './modules/weather';
 import bookmarks from './modules/bookmarks';
 import horoscope from './modules/horoscope';
+import huemodule from './modules/hue';
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ const store = new Vuex.Store({
     weather,
     bookmarks,
     horoscope,
+    huemodule,
   },
   strict: debug,
   actions: {
@@ -27,7 +29,7 @@ const store = new Vuex.Store({
   plugins: debug ? [createLogger()] : [],
 });
 
-store.subscribe((muatation, state) => {
+store.subscribe((mutation, state) => {
   localforage.setItem('store', JSON.stringify(state));
 });
 

@@ -21,13 +21,23 @@ import { actions, mutations } from '../../store/types';
 
 const capitalize = (word) => word.charAt(0).toUpperCase() + word.substr(1);
 
-
 export default {
   components: { HoroscopeWidget },
   data() {
     return {
       items: [
-        'aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces',
+        'aries',
+        'taurus',
+        'gemini',
+        'cancer',
+        'leo',
+        'virgo',
+        'libra',
+        'scorpio',
+        'sagittarius',
+        'capricorn',
+        'aquarius',
+        'pisces',
       ].map((el) => ({ value: el, text: capitalize(el) })),
     };
   },

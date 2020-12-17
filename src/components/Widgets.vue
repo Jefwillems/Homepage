@@ -4,7 +4,10 @@
     fluid
   >
     <VLayout row>
-      <VFlex xs9>
+      <VFlex xs1>
+        <Light />
+      </VFlex>
+      <VFlex xs7>
         <VLayout
           row
           wrap
@@ -12,7 +15,8 @@
         >
           <!-- <MapWidget /> -->
           <WeatherStatusWidget xs6 />
-          <!-- <SunRiseWidget /> -->
+          <!-- <,
+    LightSunRiseWidget /> -->
           <!-- <WeatherAdviceWidget xs6 /> -->
         </VLayout>
       </VFlex>
@@ -28,12 +32,14 @@ import { mapState } from 'vuex';
 import WeatherWidgetComponents from './weather';
 import Horoscopes from './horoscope/Horoscopes.vue';
 import { actions } from '../store/types';
+import Light from './hue/Light.vue';
 
 export default {
   name: 'Widgets',
   components: {
     ...WeatherWidgetComponents,
     Horoscopes,
+    Light,
   },
   computed: {
     ...mapState('weather', ['location']),

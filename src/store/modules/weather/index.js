@@ -15,7 +15,7 @@ export default {
     },
     sunrise: 0,
     sunset: 0,
-    location: 'Gent, BE',
+    location: 'Kortrijk, BE',
   },
   getters,
   actions,

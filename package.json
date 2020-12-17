@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "hue-hacking-node": "^1.6.1",
     "localforage": "^1.7.3",
     "material-design-icons-iconfont": "^5.0.1",
     "vue": "^2.6.11",
