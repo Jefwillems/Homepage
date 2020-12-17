@@ -5,7 +5,7 @@
     </h3>
     <v-switch
       v-model="localEnabled"
-      :label="lightsEnabled ? 'On':'Off'"
+      :label="localEnabled ? 'On':'Off'"
       color="orange"
       @change="toggleLights"
     />
@@ -14,29 +14,25 @@
       min="0"
       max="254"
       :thumb-label="true"
-      @end="updateLightValues"
     />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
 export default {
   name: 'HueLight',
   components: {},
   data() {
-    return {
-      localEnabled: false,
-      ...mapGetters('huemodule', ['lightsEnabled']),
-    };
+    return {};
   },
-  watch: {
-    lightsEnabled: {
-      handler(val) {
-        this.localEnabled = val;
+  computed: {
+    localEnabled: {
+      get() {
+        return this.$store.state.huemodule.lightsState[0].on;
       },
-      immediate: true,
+      set(val) {
+        this.toggleLights(val);
+      },
     },
   },
   mounted() {
