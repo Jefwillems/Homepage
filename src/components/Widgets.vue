@@ -4,24 +4,24 @@
     fluid
   >
     <VLayout row>
-      <VFlex xs1>
+      <VFlex xs3>
         <Light />
       </VFlex>
-      <VFlex xs7>
+      <VFlex xs5>
         <VLayout
           row
           wrap
           justify-center
         >
           <!-- <MapWidget /> -->
-          <WeatherStatusWidget xs6 />
+          <WeatherStatusWidget />
           <!-- <,
     LightSunRiseWidget /> -->
           <!-- <WeatherAdviceWidget xs6 /> -->
         </VLayout>
       </VFlex>
 
-      <VFlex xs3>
+      <VFlex xs4>
         <Horoscopes />
       </VFlex>
     </VLayout>

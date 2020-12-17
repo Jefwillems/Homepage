@@ -14,18 +14,29 @@ const retrieveHueInstance = async () => {
 export default {
   async dimLights() {
     const hue = await retrieveHueInstance();
-    hue.dimAll();
+    return hue.dimAll();
   },
   async brightenLights() {
     const hue = await retrieveHueInstance();
-    hue.brightenAll();
+    return hue.brightenAll();
   },
   async updateLights(store, value) {
     const hue = await retrieveHueInstance();
-    if (value === 0) {
-      hue.turnOffAll();
+
+    return hue.setAllBrightness(value);
+  },
+  async fetchState({ commit }) {
+    const hue = await retrieveHueInstance();
+
+    return commit('update_lights_state', await hue.getLampStates());
+  },
+  async toggleLights({ commit }, val) {
+    const hue = await retrieveHueInstance();
+    if (val) {
+      await hue.turnOnAll();
     } else {
-      hue.setAllBrightness(value);
+      await hue.turnOffAll();
     }
+    return commit('update_lights_state', await hue.getLampStates());
   },
 };

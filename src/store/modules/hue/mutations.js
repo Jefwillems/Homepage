@@ -1,5 +1,5 @@
 export default {
-  update_hue_instance(state, instance) {
-    state.hue = instance;
+  update_lights_state(state, lightsState) {
+    state.lightsState = lightsState;
   },
 };

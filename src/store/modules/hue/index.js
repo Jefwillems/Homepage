@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state: {
     hue: null,
+    lightsState: [{ on: false }],
   },
   getters,
   actions,
