@@ -73,7 +73,6 @@ export default {
   },
   created() {
     const updateColors = debounce(function updateColors(rgba) {
-      console.log(rgba);
       this.$store.dispatch('huemodule/updateLights', rgba);
     }, 1000, { leading: true });
     this.updateColors = updateColors;
