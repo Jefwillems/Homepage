@@ -12,12 +12,11 @@
     </v-row>
     <v-row>
       <v-slider
+        v-model="localBrightness"
         label="brightness"
         min="0"
         max="254"
         :thumb-label="true"
-        :value="localBrightness"
-        @end="localBrightness = $event"
       />
     </v-row>
     <v-row justify="center">
@@ -59,35 +58,34 @@ export default {
         return this.$store.getters['huemodule/rgbaColor'].a;
       },
       set(value) {
-        this.updateLightValues(value);
+        console.log('setting brightness to:', value);
+        const rgba = { ...this.$store.getters['huemodule/rgbaColor'], a: value };
+        this.updateColors(rgba);
       },
     },
     localColors: {
       get() {
-        return this.$store.getters['huemodule/rgbaColor'];
+        const rgba = this.$store.getters['huemodule/rgbaColor'];
+        return { ...rgba, a: rgba.a / 254 };
       },
       set(rgba) {
-        this.updateColors({ ...rgba });
+        console.log('updating local colors', rgba);
+        this.updateColors({ ...rgba, a: this.localBrightness });
       },
     },
   },
   created() {
-    const updateColors = debounce(function updateColors(rgba) {
+    this.updateColors = debounce(function updateColors(rgba) {
       this.$store.dispatch('huemodule/updateLights', rgba);
     }, 1000, { leading: true });
-    this.updateColors = updateColors;
   },
   mounted() {
     this.$store.dispatch('huemodule/fetchState');
   },
   methods: {
-    updateLightValues(value) {
-      this.$store.dispatch('huemodule/updateLightsBrightness', value);
-    },
     toggleLightStates(val) {
       this.$store.dispatch('huemodule/toggleLights', val);
     },
-
   },
 };
 </script>
