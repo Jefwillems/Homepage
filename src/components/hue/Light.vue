@@ -58,7 +58,6 @@ export default {
         return this.$store.getters['huemodule/rgbaColor'].a;
       },
       set(value) {
-        console.log('setting brightness to:', value);
         const rgba = { ...this.$store.getters['huemodule/rgbaColor'], a: value };
         this.updateColors(rgba);
       },
@@ -69,7 +68,6 @@ export default {
         return { ...rgba, a: rgba.a / 254 };
       },
       set(rgba) {
-        console.log('updating local colors', rgba);
         this.updateColors({ ...rgba, a: this.localBrightness });
       },
     },

@@ -18,8 +18,6 @@ export default {
 
     const color = hue.colors.CIE1931ToRGB(new XYPoint(...states[0].xy), states[0].bri);
     const brightness = states[0].bri;
-    console.log('brightness in setstate');
-    console.log(brightness);
     commit('update_lights', { ...color, a: states[0].bri, enabled: states[0].on });
   },
   async toggleLights({ dispatch }, val) {
@@ -34,10 +32,6 @@ export default {
   async updateLights({ commit }, {
     r, g, b, a,
   }) {
-    console.log('updateLights action');
-    console.log({
-      r, g, b, a,
-    });
     const hue = await retrieveHueInstance();
 
     await hue.setAllColors(hue.colors.rgbToCIE1931(new RGB(r, g, b)));
