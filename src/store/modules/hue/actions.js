@@ -17,7 +17,6 @@ export default {
     const states = await hue.getLampStates();
 
     const color = hue.colors.CIE1931ToRGB(new XYPoint(...states[0].xy), states[0].bri);
-    const brightness = states[0].bri;
     commit('update_lights', { ...color, a: states[0].bri, enabled: states[0].on });
   },
   async toggleLights({ dispatch }, val) {
