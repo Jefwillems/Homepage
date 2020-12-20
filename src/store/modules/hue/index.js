@@ -6,7 +6,13 @@ export default {
   namespaced: true,
   state: {
     hue: null,
-    lightsState: [{ on: false }],
+    rgba: {
+      r: 1,
+      g: 1,
+      b: 1,
+      a: 1,
+      enabled: false,
+    },
   },
   getters,
   actions,

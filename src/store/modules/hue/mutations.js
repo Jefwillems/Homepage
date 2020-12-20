@@ -1,5 +1,5 @@
 export default {
-  update_lights_state(state, lightsState) {
-    state.lightsState = lightsState;
+  update_lights(state, rgba) {
+    state.rgba = { ...state.rgba, ...rgba };
   },
 };

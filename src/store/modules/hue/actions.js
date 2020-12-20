@@ -1,4 +1,4 @@
-import { Hue } from 'hue-hacking-node';
+import { Hue, XYPoint, RGB } from 'hue-hacking-node';
 
 const retrieveHueInstance = async () => {
   const key = process.env.VUE_APP_HUE_API_KEY;
@@ -12,31 +12,34 @@ const retrieveHueInstance = async () => {
 };
 
 export default {
-  async dimLights() {
-    const hue = await retrieveHueInstance();
-    return hue.dimAll();
-  },
-  async brightenLights() {
-    const hue = await retrieveHueInstance();
-    return hue.brightenAll();
-  },
-  async updateLights(store, value) {
-    const hue = await retrieveHueInstance();
-
-    return hue.setAllBrightness(value);
-  },
   async fetchState({ commit }) {
     const hue = await retrieveHueInstance();
+    const states = await hue.getLampStates();
 
-    return commit('update_lights_state', await hue.getLampStates());
+    const color = hue.colors.CIE1931ToRGB(new XYPoint(...states[0].xy), states[0].bri);
+
+    commit('update_lights', { ...color, a: states[0].bri / 254, enabled: states[0].on });
   },
-  async toggleLights({ commit }, val) {
+  async toggleLights({ dispatch }, val) {
     const hue = await retrieveHueInstance();
     if (val) {
       await hue.turnOnAll();
     } else {
       await hue.turnOffAll();
     }
-    return commit('update_lights_state', await hue.getLampStates());
+    return dispatch('fetchState');
+  },
+
+  async updateLights({ commit }, {
+    r, g, b, a,
+  }) {
+    const hue = await retrieveHueInstance();
+
+    await hue.setAllColors(hue.colors.rgbToCIE1931(new RGB(r, g, b)));
+    await hue.setAllBrightness(a * 254);
+
+    commit('update_lights', {
+      r, g, b, a,
+    });
   },
 };
