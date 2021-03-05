@@ -13,11 +13,8 @@
           wrap
           justify-center
         >
-          <!-- <MapWidget /> -->
           <WeatherStatusWidget />
-          <!-- <,
-    LightSunRiseWidget /> -->
-          <!-- <WeatherAdviceWidget xs6 /> -->
+          <TradingView />
         </VLayout>
       </VFlex>
 
@@ -31,6 +28,7 @@
 import { mapState } from 'vuex';
 import WeatherWidgetComponents from './weather';
 import Horoscopes from './horoscope/Horoscopes.vue';
+import TradingView from './TradingView.vue';
 import { actions } from '../store/types';
 import Light from './hue/Light.vue';
 
@@ -40,6 +38,7 @@ export default {
     ...WeatherWidgetComponents,
     Horoscopes,
     Light,
+    TradingView,
   },
   computed: {
     ...mapState('weather', ['location']),

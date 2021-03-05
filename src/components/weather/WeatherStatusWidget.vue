@@ -7,7 +7,11 @@
       dark
       color="primary"
     >
-      <VImg :src="picUrl" />
+      <VImg
+        :src="picUrl"
+        position="bottom"
+        max-height="225"
+      />
       <VCardTitle primary-title>
         <div class="fw">
           <h3>{{ weatherCard.mainInfo }}</h3>
