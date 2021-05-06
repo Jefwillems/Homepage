@@ -21,7 +21,7 @@ export default {
     new TradingView.widget({
       width: 685,
       height: '400px',
-      symbol: 'BINANCE:ADAEUR',
+      symbol: 'KRAKEN:ETHEUR',
       interval: 'D',
       timezone: 'Europe/Brussels',
       theme: 'dark',
