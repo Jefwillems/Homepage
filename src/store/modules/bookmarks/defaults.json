@@ -21,7 +21,7 @@
     {
       "url": "https://www.google.be/maps",
       "title": "Maps",
-      "icon": "live_tv",
+      "icon": "map",
       "id": 3
     },
     {
@@ -33,25 +33,25 @@
     {
       "url": "https://www.disneyplus.com/en-gb/home",
       "title": "Disney+",
-      "icon": "live_tv",
+      "icon": "tv",
       "id": 5
     },
     {
       "url": "https://www.youtube.com/",
       "title": "Youtube",
-      "icon": "live_tv",
+      "icon": "theaters",
       "id": 6
     },
     {
       "url": " https://github.com/",
       "title": "Youtube",
-      "icon": "live_tv",
+      "icon": "code",
       "id": 7
     },
     {
       "url": "https://lobste.rs/",
       "title": "Youtube",
-      "icon": "live_tv",
+      "icon": "whatshot",
       "id": 8
     }
   ]
